@@ -10,7 +10,7 @@ interface Props {
 
 const getActive = (items: any) => items
   .filter((d: any) => !!d.status)
-  .sort((a: any, b: any) => a.updatedOn > b.updatedOn);
+  .sort((a: any, b: any) => a.updatedOn > b.updatedOn ? 1 : a === b ? 0 : -1);
 
 const reducer = (existing: any, layers: any) => {
   if (layers?.length !== existing?.length) {
