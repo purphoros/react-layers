@@ -45,7 +45,7 @@ const LayerContextProvider = ({ children }: { children: ReactNode }) => {
   const closeLayerByName = useCallback((name: string) =>
     addLayer(layers.filter((layer) => layer.name !== name)), [ layers ]);
 
-  const closeAllLayers = () => addLayer([]);
+  const closeAllLayers = useCallback(() => addLayer([]), []);
 
   const createLayer = useCallback(({
     children,
@@ -66,7 +66,7 @@ const LayerContextProvider = ({ children }: { children: ReactNode }) => {
     addLayer((existing: any) => [ ...existing, newLayer ]);
 
     if (callback) callbacks.current.push(callback);
-  }, [ layers ]);
+  }, [ ]);
 
   useEffect(() => {
     callbacks.current.forEach((callback) => callback());
@@ -81,11 +81,11 @@ const LayerContextProvider = ({ children }: { children: ReactNode }) => {
       closeLayerByName,
       closeAllLayers
     }),
-    [ layers, createLayer ]
+    [ layers, createLayer, closeLayerByUuid, closeLayerByName, closeAllLayers ]
   );
 
   const activeLayers = layers
-    .sort((a: any, b: any) => a.updatedOn < b.updatedOn ? 1 : a === b ? 0 : -1)
+    .sort((a: any, b: any) => a.updatedOn < b.updatedOn ? -1 : a === b ? 0 : 1)
     .filter((d: any) => !!d.status);
 
   return <LayerContext.Provider value={contextValue}>

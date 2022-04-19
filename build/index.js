@@ -41,7 +41,7 @@ var LayerContextProvider = function (_a) {
     var closeLayerByName = useCallback(function (name) {
         return addLayer(layers.filter(function (layer) { return layer.name !== name; }));
     }, [layers]);
-    var closeAllLayers = function () { return addLayer([]); };
+    var closeAllLayers = useCallback(function () { return addLayer([]); }, []);
     var createLayer = useCallback(function (_a, callback) {
         var children = _a.children, name = _a.name, _b = _a.orientation, orientation = _b === void 0 ? 'full' : _b;
         var layerUuid = uuidv4();
@@ -56,14 +56,14 @@ var LayerContextProvider = function (_a) {
         addLayer(function (existing) { return __spreadArray(__spreadArray([], existing, true), [newLayer], false); });
         if (callback)
             callbacks.current.push(callback);
-    }, [layers]);
+    }, []);
     useEffect(function () {
         callbacks.current.forEach(function (callback) { return callback(); });
         callbacks.current = [];
     }, [layers]);
-    var contextValue = useMemo(function () { return (__assign(__assign({}, layers), { createLayer: createLayer, closeLayerByUuid: closeLayerByUuid, closeLayerByName: closeLayerByName, closeAllLayers: closeAllLayers })); }, [layers, createLayer]);
+    var contextValue = useMemo(function () { return (__assign(__assign({}, layers), { createLayer: createLayer, closeLayerByUuid: closeLayerByUuid, closeLayerByName: closeLayerByName, closeAllLayers: closeAllLayers })); }, [layers, createLayer, closeLayerByUuid, closeLayerByName, closeAllLayers]);
     var activeLayers = layers
-        .sort(function (a, b) { return a.updatedOn < b.updatedOn ? 1 : a === b ? 0 : -1; })
+        .sort(function (a, b) { return a.updatedOn < b.updatedOn ? -1 : a === b ? 0 : 1; })
         .filter(function (d) { return !!d.status; });
     return React.createElement(LayerContext.Provider, { value: contextValue },
         children,
