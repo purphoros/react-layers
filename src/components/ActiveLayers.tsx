@@ -40,8 +40,6 @@ const ActiveLayers = (props: Props) => {
     }
   }
 
-  // (orientation && alignments[orientation]) ? alignments[orientation] : alignments.modal,  
-
   return <React.Fragment>
     {activeLayers.map(({
       layerUuid,

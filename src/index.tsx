@@ -65,18 +65,6 @@ const LayerContextProvider = ({ children }: { children: ReactNode }) => {
 
     addLayer((existing: any) => [ ...existing, newLayer ]);
 
-
-    // addLayer(layers);
-    // const _layer =  
-    // addLayer((existing: any) => {
-      // return [ ...existing, {
-      //   ...layer,
-      //   layerUuid: uuidv4(),
-      //   status: 1,
-      //   updatedOn: Date.now()
-      //  }]
-    // });
-
     if (callback) callbacks.current.push(callback);
   }, [ layers ]);
 
@@ -97,7 +85,7 @@ const LayerContextProvider = ({ children }: { children: ReactNode }) => {
   );
 
   const activeLayers = layers
-    .sort((a, b) => (a.updatedOn ?? 0) > (b.updatedOn ?? 0) ? -1 : 1)
+    .sort((a, b) => (a.updatedOn ?? 0) < (b.updatedOn ?? 0) ? -1 : 1)
     .filter((d: any) => !!d.status);
 
   return <LayerContext.Provider value={contextValue}>
