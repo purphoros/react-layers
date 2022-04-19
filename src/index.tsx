@@ -101,8 +101,8 @@ const LayerContextProvider = ({ children }: { children: ReactNode }) => {
     .filter((d: any) => !!d.status);
 
   return <LayerContext.Provider value={contextValue}>
-    // {children}
-    // {!!activeLayers?.length && <ActiveLayers layers={activeLayers} closeLayerByUuid={closeLayerByUuid} />}
+    {children}
+    {!!activeLayers?.length && <ActiveLayers layers={activeLayers} closeLayerByUuid={closeLayerByUuid} />}
   </LayerContext.Provider>;
 };
 

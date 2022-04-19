@@ -4,9 +4,20 @@
   "description": "Manage layers in react",
   "license": "MIT",
   "author": "Benjamin C. Tehan <purphoros@devforge.org>",
-  "main": "index.js",
+  "keywords": [
+    "react",
+    "components",
+    "layers"
+  ],
+  "main": "build/index.js",
+  "module": "build/index.js",
+  "files": [
+    "build",
+    "README.md"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
