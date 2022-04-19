@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 export declare const MINIMIZED_FLAG = 0;
 export declare const MAXIMIZED_FLAG = 1;
 export declare const uuidv4: () => string;
@@ -18,10 +18,8 @@ interface Context {
     closeAllLayers: () => void;
     [k: string]: any;
 }
-declare const _default: {
-    LayerContextProvider: ({ children }: {
-        children: React.ReactNode;
-    }) => JSX.Element;
-    useLayerContext: () => Context;
-};
-export default _default;
+declare const useLayerContext: () => Context;
+declare const LayerContextProvider: ({ children }: {
+    children: ReactNode;
+}) => JSX.Element;
+export { LayerContextProvider, useLayerContext };
