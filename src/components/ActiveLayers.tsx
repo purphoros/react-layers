@@ -1,6 +1,7 @@
-import React, { useReducer, cloneElement } from 'react';
+import React, { cloneElement } from 'react';
+// import React, { useReducer, cloneElement } from 'react';
 
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { Layer } from '..';
 
 interface Props {
