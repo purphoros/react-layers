@@ -43,6 +43,7 @@ const ActiveLayers = (props: Props) => {
   return <React.Fragment>
     {activeLayers.map((layer: Layer) => {
       const { layerUuid, children, orientation = "modal" } = layer;
+console.log("layer", layer);
       const custom = (orientation && alignments[orientation]) ? alignments[orientation] : alignments.default;
       return <div key={layerUuid} style={{ ...custom, display: "flex", flexDirection: "column", position: "absolute", top: "0px", right: "0px", bottom: "0px", left: "0px", backgroundColor: "transparent" }}>
         <div style={{ position: "absolute", top: "0px", right: "0px", bottom: "0px", left: "0px", backgroundColor: "black", opacity: "0.5" }} onClick={() => layerUuid && closeLayerByUuid(layerUuid)} />
