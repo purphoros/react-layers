@@ -63,7 +63,7 @@ var LayerContextProvider = function (_a) {
     }, [layers]);
     var contextValue = useMemo(function () { return (__assign(__assign({}, layers), { createLayer: createLayer, closeLayerByUuid: closeLayerByUuid, closeLayerByName: closeLayerByName, closeAllLayers: closeAllLayers })); }, [layers, createLayer]);
     var activeLayers = layers
-        .sort(function (a, b) { return a.updatedOn > b.updatedOn ? 1 : a === b ? 0 : -1; })
+        .sort(function (a, b) { return a.updatedOn < b.updatedOn ? 1 : a === b ? 0 : -1; })
         .filter(function (d) { return !!d.status; });
     return React.createElement(LayerContext.Provider, { value: contextValue },
         children,
