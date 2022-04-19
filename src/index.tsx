@@ -85,7 +85,7 @@ const LayerContextProvider = ({ children }: { children: ReactNode }) => {
   );
 
   const activeLayers = layers
-    .sort((a, b) => (a.updatedOn ?? 0) < (b.updatedOn ?? 0) ? -1 : 1)
+    .sort((a: any, b: any) => a.updatedOn > b.updatedOn ? 1 : a === b ? 0 : -1)
     .filter((d: any) => !!d.status);
 
   return <LayerContext.Provider value={contextValue}>
