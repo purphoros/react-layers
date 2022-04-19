@@ -17,9 +17,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm build:esm && npm build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir build/cjs"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
