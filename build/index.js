@@ -9,12 +9,14 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __spreadArrays = (this && this.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 import React, { useMemo, useState, useCallback, useContext, createContext, useRef, useEffect, cloneElement } from 'react';
 import ActiveLayers from './components/ActiveLayers';
@@ -51,17 +53,7 @@ var LayerContextProvider = function (_a) {
             updatedOn: Date.now(),
             children: cloneElement(children, { layerUuid: layerUuid })
         };
-        addLayer(function (existing) { return __spreadArrays(existing, [newLayer]); });
-        // addLayer(layers);
-        // const _layer =  
-        // addLayer((existing: any) => {
-        // return [ ...existing, {
-        //   ...layer,
-        //   layerUuid: uuidv4(),
-        //   status: 1,
-        //   updatedOn: Date.now()
-        //  }]
-        // });
+        addLayer(function (existing) { return __spreadArray(__spreadArray([], existing, true), [newLayer], false); });
         if (callback)
             callbacks.current.push(callback);
     }, [layers]);
@@ -69,12 +61,9 @@ var LayerContextProvider = function (_a) {
         callbacks.current.forEach(function (callback) { return callback(); });
         callbacks.current = [];
     }, [layers]);
-    var contextValue = useMemo(function () { return (__assign(__assign({}, layers), { createLayer: createLayer,
-        closeLayerByUuid: closeLayerByUuid,
-        closeLayerByName: closeLayerByName,
-        closeAllLayers: closeAllLayers })); }, [layers, createLayer]);
+    var contextValue = useMemo(function () { return (__assign(__assign({}, layers), { createLayer: createLayer, closeLayerByUuid: closeLayerByUuid, closeLayerByName: closeLayerByName, closeAllLayers: closeAllLayers })); }, [layers, createLayer]);
     var activeLayers = layers
-        .sort(function (a, b) { var _a, _b; return ((_a = a.updatedOn) !== null && _a !== void 0 ? _a : 0) > ((_b = b.updatedOn) !== null && _b !== void 0 ? _b : 0) ? -1 : 1; })
+        .sort(function (a, b) { return a.updatedOn > b.updatedOn ? 1 : a === b ? 0 : -1; })
         .filter(function (d) { return !!d.status; });
     return React.createElement(LayerContext.Provider, { value: contextValue },
         children,
