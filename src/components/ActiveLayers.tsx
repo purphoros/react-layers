@@ -8,24 +8,24 @@ interface Props {
   closeLayerByUuid: (layerUuid: string) => void
 }
 
-const getActive = (items: any) => items
-  .filter((d: any) => !!d.status)
-  .sort((a: any, b: any) => a.updatedOn > b.updatedOn ? 1 : a === b ? 0 : -1);
+// const getActive = (items: any) => items
+//   .filter((d: any) => !!d.status)
+//   .sort((a: any, b: any) => a.updatedOn > b.updatedOn ? 1 : a === b ? 0 : -1);
 
-const reducer = (existing: any, layers: any) => {
-  if (layers?.length !== existing?.length) {
-    return layers;
-  }
-  return existing;
-}
+// const reducer = (existing: any, layers: any) => {
+//   if (layers?.length !== existing?.length) {
+//     return layers;
+//   }
+//   return existing;
+// }
 
 const ActiveLayers = (props: Props) => {
   const { layers, closeLayerByUuid } = props;
-  const [ activeLayers = [], dispatch ] = useReducer(reducer, getActive(layers));
 
-  useEffect(() => {
-    dispatch(getActive(layers));
-  }, [ layers ]);
+  // const [ activeLayers = [], dispatch ] = useReducer(reducer, getActive(layers));
+  // useEffect(() => {
+  //   dispatch(getActive(layers));
+  // }, [ layers ]);
 
 
   const alignments: { [k: string]: any } = {
@@ -41,7 +41,7 @@ const ActiveLayers = (props: Props) => {
   }
 
   return <React.Fragment>
-    {activeLayers.map((layer: Layer) => {
+    {layers.map((layer: Layer) => {
       const { layerUuid, children, orientation = "modal" } = layer;
       console.log("layer", layer);
       const custom = (orientation && alignments[orientation]) ? alignments[orientation] : alignments.default;

@@ -9,23 +9,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import React, { useReducer, cloneElement } from 'react';
-import { useEffect } from 'react';
-var getActive = function (items) { return items
-    .filter(function (d) { return !!d.status; })
-    .sort(function (a, b) { return a.updatedOn > b.updatedOn ? 1 : a === b ? 0 : -1; }); };
-var reducer = function (existing, layers) {
-    if ((layers === null || layers === void 0 ? void 0 : layers.length) !== (existing === null || existing === void 0 ? void 0 : existing.length)) {
-        return layers;
-    }
-    return existing;
-};
+import React, { cloneElement } from 'react';
+// const getActive = (items: any) => items
+//   .filter((d: any) => !!d.status)
+//   .sort((a: any, b: any) => a.updatedOn > b.updatedOn ? 1 : a === b ? 0 : -1);
+// const reducer = (existing: any, layers: any) => {
+//   if (layers?.length !== existing?.length) {
+//     return layers;
+//   }
+//   return existing;
+// }
 var ActiveLayers = function (props) {
     var layers = props.layers, closeLayerByUuid = props.closeLayerByUuid;
-    var _a = useReducer(reducer, getActive(layers)), _b = _a[0], activeLayers = _b === void 0 ? [] : _b, dispatch = _a[1];
-    useEffect(function () {
-        dispatch(getActive(layers));
-    }, [layers]);
+    // const [ activeLayers = [], dispatch ] = useReducer(reducer, getActive(layers));
+    // useEffect(() => {
+    //   dispatch(getActive(layers));
+    // }, [ layers ]);
     var alignments = {
         modal: {
             alignItems: "center", justifyContent: "center"
@@ -35,7 +34,7 @@ var ActiveLayers = function (props) {
             justifyContent: "flex-end"
         }
     };
-    return React.createElement(React.Fragment, null, activeLayers.map(function (layer) {
+    return React.createElement(React.Fragment, null, layers.map(function (layer) {
         var layerUuid = layer.layerUuid, children = layer.children, _a = layer.orientation, orientation = _a === void 0 ? "modal" : _a;
         console.log("layer", layer);
         var custom = (orientation && alignments[orientation]) ? alignments[orientation] : alignments.default;
