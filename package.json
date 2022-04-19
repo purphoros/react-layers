@@ -1,0 +1,29 @@
+{
+  "name": "@purphoros/react-layers",
+  "version": "1.0.0",
+  "description": "Manage layers in react",
+  "license": "MIT",
+  "author": "Benjamin C. Tehan <purphoros@devforge.org>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/purphoros/react-layers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/purphoros/react-layers/issues"
+  },
+  "homepage": "https://github.com/purphoros/react-layers#readme",
+  "devDependencies": {
+    "@types/react": "^18.0.4",
+    "@types/react-dom": "^18.0.0",
+    "@types/react-test-renderer": "^18.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-scripts-ts": "^3.1.0",
+    "react-test-renderer": "^18.0.0",
+    "typescript": "^4.6.3"
+  }
+}
