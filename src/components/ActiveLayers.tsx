@@ -2,7 +2,7 @@ import React, { cloneElement } from 'react';
 // import React, { useReducer, cloneElement } from 'react';
 
 // import { useEffect } from 'react';
-import { Layer } from '..';
+import { Layer } from './Context';
 
 interface Props {
   layers: any

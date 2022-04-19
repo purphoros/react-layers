@@ -9,15 +9,16 @@
     "components",
     "layers"
   ],
-  "main": "build/index.js",
-  "module": "build/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "build",
+    "dist",
     "README.md"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -28,13 +29,25 @@
   },
   "homepage": "https://github.com/purphoros/react-layers#readme",
   "devDependencies": {
-    "@types/react": "^18.0.4",
-    "@types/react-dom": "^18.0.0",
-    "@types/react-test-renderer": "^18.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-scripts-ts": "^3.1.0",
-    "react-test-renderer": "^18.0.0",
-    "typescript": "^4.6.3"
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@types/react": "^17.0.18",
+    "postcss": "^8.4.12",
+    "react": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.56.2",
+    "rollup-plugin-dts": "^3.0.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "tslib": "^2.3.1",
+    "uuid": "^8.3.2"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
   }
 }

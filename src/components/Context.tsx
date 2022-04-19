@@ -1,9 +1,25 @@
 import React, { useMemo, useState, useCallback, useContext, createContext, ReactNode, useRef, useEffect, cloneElement } from 'react';
-import ActiveLayers from './components/ActiveLayers';
-import { uuidv4 } from './functions';
+import ActiveLayers from './ActiveLayers';
 
 export const MINIMIZED_FLAG = 0;
 export const MAXIMIZED_FLAG = 1;
+
+export const uuidv4 = () => {
+  let d = new Date().getTime();
+  let d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now() * 1000)) || 0;
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c: any) => {
+    let r = Math.random() * 16;
+    if (d > 0) {
+      r = (d + r) % 16 | 0;
+      d = Math.floor(d / 16);
+    } else {
+      r = (d2 + r) % 16 | 0;
+      d2 = Math.floor(d2 / 16);
+    }
+
+    return (c === 'x' ? r : ((r & 0x3) | 0x8)).toString(16);
+  });
+};
 
 export interface Layer {
   layerUuid?: string
@@ -94,4 +110,4 @@ const LayerContextProvider = ({ children }: { children: ReactNode }) => {
   </LayerContext.Provider>;
 };
 
-export { LayerContextProvider, useLayerContext };
+export default { LayerContextProvider, useLayerContext };
