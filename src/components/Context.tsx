@@ -49,7 +49,8 @@ const useLayerContext = (): Context => {
   return context as any;
 };
 
-const LayerContextProvider = ({ children }: PropsWithChildren<{}>) => {
+// const LayerContextProvider = ({ children }: PropsWithChildren<{}>) => {
+const LayerContextProvider: FC = ({ children }) => {
 
   const callbacks = useRef<(() => void)[]>([]);
 
