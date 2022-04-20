@@ -109,10 +109,12 @@ const LayerContextProvider: FC<Props> = (props): any => {
     .sort((a: any, b: any) => a.updatedOn < b.updatedOn ? -1 : a === b ? 0 : 1)
     .filter((d: any) => !!d.status);
 
-  return <LayerContext.Provider value={contextValue}>
-    {children}
-    {!!activeLayers?.length && <ActiveLayers layers={activeLayers} closeLayerByUuid={closeLayerByUuid} />}
-  </LayerContext.Provider>;
+  return <>
+    <LayerContext.Provider value={contextValue}>
+      {children}
+      {!!activeLayers?.length && <ActiveLayers layers={activeLayers} closeLayerByUuid={closeLayerByUuid} />}
+    </LayerContext.Provider>
+  </>;
 };
 
 export default { LayerContextProvider, useLayerContext };
