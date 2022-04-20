@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback, useContext, createContext, ReactNode, useRef, useEffect, cloneElement } from 'react';
+import React, { useMemo, useState, useCallback, useContext, createContext, ReactNode, useRef, useEffect, cloneElement, FC } from 'react';
 import ActiveLayers from './ActiveLayers';
 
 export const MINIMIZED_FLAG = 0;
@@ -49,7 +49,7 @@ const useLayerContext = (): Context => {
   return context as any;
 };
 
-const LayerContextProvider = ({ children }: { children: ReactNode }) => {
+const LayerContextProvider: FC = ({ children }) => {
 
   const callbacks = useRef<(() => void)[]>([]);
 

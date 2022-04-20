@@ -17,9 +17,7 @@ interface Context {
     [k: string]: any;
 }
 declare const _default: {
-    LayerContextProvider: ({ children }: {
-        children: React.ReactNode;
-    }) => JSX.Element;
+    LayerContextProvider: React.FC<{}>;
     useLayerContext: () => Context;
 };
 
