@@ -54,8 +54,8 @@ interface Props {
 }
 
 // const LayerContextProvider = ({ children }: PropsWithChildren<{}>) => {
-const LayerContextProvider: FC<Props> = ({ children }) => {
-
+const LayerContextProvider: FC<Props> = (props: any) => {
+  const { children } = props;
   const callbacks = useRef<(() => void)[]>([]);
 
   const [ layers, addLayer ] = useState<Array<Layer>>([]);
