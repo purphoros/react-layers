@@ -54,7 +54,7 @@ interface Props {
 }
 
 // const LayerContextProvider = ({ children }: PropsWithChildren<{}>) => {
-export const LayerContextProvider: FC<Props> = (props: any): JSX.Element => {
+export const LayerContextProvider: FC<Props> | undefined = (props: any): JSX.Element => {
   const { children } = props;
   const callbacks = useRef<(() => void)[]>([]);
 
