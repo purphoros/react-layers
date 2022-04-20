@@ -110,4 +110,4 @@ const LayerContextProvider = ({ children }: { children: ReactNode }) => {
   </LayerContext.Provider>;
 };
 
-export { LayerContextProvider, useLayerContext };
+export default { LayerContextProvider, useLayerContext };
