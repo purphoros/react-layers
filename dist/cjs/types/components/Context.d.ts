@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 export declare const MINIMIZED_FLAG = 0;
 export declare const MAXIMIZED_FLAG = 1;
 export declare const uuidv4: () => string;
@@ -21,6 +21,7 @@ interface Context {
 interface Props {
     children: React.ReactNode;
 }
+export declare const LayerContextProvider: FC<Props>;
 declare const _default: {
     LayerContextProvider: React.FC<Props>;
     useLayerContext: () => Context;
