@@ -1,4 +1,4 @@
-import React, { ElementType } from 'react';
+import React from 'react';
 export declare const MINIMIZED_FLAG = 0;
 export declare const MAXIMIZED_FLAG = 1;
 export declare const uuidv4: () => string;
@@ -18,11 +18,8 @@ interface Context {
     closeAllLayers: () => void;
     [k: string]: any;
 }
-interface Props {
-    children: ElementType;
-}
 declare const _default: {
-    LayerContextProvider: React.FC<Props>;
+    LayerContextProvider: React.FC<{}>;
     useLayerContext: () => Context;
 };
 export default _default;

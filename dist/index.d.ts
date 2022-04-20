@@ -1,4 +1,4 @@
-import React, { ElementType } from 'react';
+import React from 'react';
 
 interface Layer {
     layerUuid?: string;
@@ -16,11 +16,8 @@ interface Context {
     closeAllLayers: () => void;
     [k: string]: any;
 }
-interface Props {
-    children: ElementType;
-}
 declare const _default: {
-    LayerContextProvider: React.FC<Props>;
+    LayerContextProvider: React.FC<{}>;
     useLayerContext: () => Context;
 };
 
