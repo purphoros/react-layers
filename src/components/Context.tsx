@@ -41,7 +41,7 @@ interface Context {
 
 const LayerContext = createContext([]);
 
-const useLayerContext = (): Context => {
+export const useLayerContext = (): Context => {
   const context = useContext(LayerContext);
   if (context === undefined) {
     throw new Error('useLayerContext was used outside of its Provider');
@@ -53,8 +53,7 @@ interface Props {
   children: React.ReactNode
 }
 
-// const LayerContextProvider = ({ children }: PropsWithChildren<{}>) => {
-export const LayerContextProvider: FC<Props> | undefined = (props: any): JSX.Element => {
+export const LayerContextProvider: FC<Props> = (props: any) => {
   const { children } = props;
   const callbacks = useRef<(() => void)[]>([]);
 

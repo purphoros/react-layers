@@ -18,10 +18,11 @@ interface Context {
     closeAllLayers: () => void;
     [k: string]: any;
 }
+export declare const useLayerContext: () => Context;
 interface Props {
     children: React.ReactNode;
 }
-export declare const LayerContextProvider: FC<Props> | undefined;
+export declare const LayerContextProvider: FC<Props>;
 declare const _default: {
     LayerContextProvider: React.FC<Props>;
     useLayerContext: () => Context;
