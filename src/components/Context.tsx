@@ -50,7 +50,7 @@ const useLayerContext = (): Context => {
 };
 
 interface Props {
-  children: ElementType
+  children: React.ReactNode
 }
 
 // const LayerContextProvider = ({ children }: PropsWithChildren<{}>) => {
