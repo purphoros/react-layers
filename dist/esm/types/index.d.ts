@@ -1,2 +1,2 @@
-export { default as LayerContextProvider } from './components/Context';
-export { default as useLayerContext } from './components/Context';
+export { LayerContextProvider } from './components/Context';
+export { useLayerContext } from './components/Context';
