@@ -9,7 +9,7 @@ interface Base {
   updatedOn?: number
   name?: string
   orientation?: string
-  component: ReactElement
+  component: ReactElement<{ layerUuid: string }, any>
   [k: string]: any
 }
 
