@@ -6,7 +6,7 @@ interface Base {
     name?: string;
     orientation?: string;
     component: ReactElement<{
-        layerUuid: string;
+        layerUuid?: string;
     }, any>;
     [k: string]: any;
 }

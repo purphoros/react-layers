@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   const { createLayer, closeLayerByUuid } = useLayer();
 
-  const Modal = ({ layerUuid }: Layer) => <div style={{ position: "relative", width: "400px", padding: "12px", backgroundColor: "#FFF" }}>
+  const Modal = ({ layerUuid }) => <div style={{ position: "relative", width: "400px", padding: "12px", backgroundColor: "#FFF" }}>
     <div>Modal</div>
     <button onClick={() => closeLayerByUuid(layerUuid)}>Close</button>
   </div>
