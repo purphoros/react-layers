@@ -1,17 +1,19 @@
 import React, { FC } from 'react';
 export declare const MINIMIZED_FLAG = 0;
 export declare const MAXIMIZED_FLAG = 1;
-export interface Layer {
-    layerUuid: string;
+interface Base {
     updatedOn?: number;
     name?: string;
     orientation?: string;
     component?: any;
     [k: string]: any;
 }
+export interface Layer extends Base {
+    layerUuid: string;
+}
 export interface Context {
     layers: any;
-    createLayer: (values: Layer, callback?: () => void) => void;
+    createLayer: (values: Base, callback?: () => void) => void;
     closeLayerByUuid: (layerUuid: string) => void;
     closeLayerByName: (name: string) => void;
     closeAllLayers: () => void;

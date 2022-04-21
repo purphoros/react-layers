@@ -5,8 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 export const MINIMIZED_FLAG = 0;
 export const MAXIMIZED_FLAG = 1;
 
-export interface Layer {
-  layerUuid: string
+interface Base {
   updatedOn?: number
   name?: string
   orientation?: string
@@ -14,9 +13,13 @@ export interface Layer {
   [k: string]: any
 }
 
+export interface Layer extends Base {
+  layerUuid: string
+}
+
 export interface Context {
   layers: any
-  createLayer: (values: Layer, callback?: () => void) => void
+  createLayer: (values: Base, callback?: () => void) => void
   closeLayerByUuid: (layerUuid: string) => void
   closeLayerByName: (name: string) => void
   closeAllLayers: () => void
@@ -41,7 +44,7 @@ export const LayersProvider: FC<Props> = (props: any) => {
   const { children } = props;
   const callbacks = useRef<(() => void)[]>([]);
 
-  const [ layers, addLayer ] = useState<Array<Layer>>([]);
+  const [ layers, addLayer ] = useState<Array<Base>>([]);
 
   const closeLayerByUuid = useCallback((layerUuid: string) =>
     addLayer(layers.filter((layer) => layer.layerUuid !== layerUuid)), [ layers ]);
@@ -55,7 +58,7 @@ export const LayersProvider: FC<Props> = (props: any) => {
     component,
     name,
     orientation = 'full'
-  }: Layer, callback?: () => void) => {
+  }: Base, callback?: () => void) => {
     const layerUuid = uuidv4();
 
     let newLayer = {

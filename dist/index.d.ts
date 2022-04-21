@@ -1,16 +1,18 @@
 import React, { FC } from 'react';
 
-interface Layer {
-    layerUuid: string;
+interface Base {
     updatedOn?: number;
     name?: string;
     orientation?: string;
     component?: any;
     [k: string]: any;
 }
+interface Layer extends Base {
+    layerUuid: string;
+}
 interface Context {
     layers: any;
-    createLayer: (values: Layer, callback?: () => void) => void;
+    createLayer: (values: Base, callback?: () => void) => void;
     closeLayerByUuid: (layerUuid: string) => void;
     closeLayerByName: (name: string) => void;
     closeAllLayers: () => void;
