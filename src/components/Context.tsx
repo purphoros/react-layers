@@ -11,7 +11,7 @@ export interface Layer {
   updatedOn?: number
   name?: string
   orientation?: string
-  children?: any
+  component?: any
   [k: string]: any
 }
 
@@ -53,7 +53,7 @@ export const LayersProvider: FC<Props> = (props: any) => {
   const closeAllLayers = useCallback(() => addLayer([]), []);
 
   const createLayer = useCallback(({
-    children,
+    component,
     name,
     orientation = 'full'
   }: Layer, callback?: () => void) => {
@@ -65,7 +65,7 @@ export const LayersProvider: FC<Props> = (props: any) => {
       orientation,
       status: MAXIMIZED_FLAG,
       updatedOn: Date.now(),
-      children: cloneElement(children, { layerUuid })
+      component: cloneElement(component, { layerUuid })
     };
 
     addLayer((existing: any) => [ ...existing, newLayer ]);

@@ -6,7 +6,7 @@ export interface Layer {
     updatedOn?: number;
     name?: string;
     orientation?: string;
-    children?: any;
+    component?: any;
     [k: string]: any;
 }
 interface Context {
