@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 export declare const MINIMIZED_FLAG = 0;
 export declare const MAXIMIZED_FLAG = 1;
-export declare const uuidv4: () => string;
 export interface Layer {
     layerUuid?: string;
     updatedOn?: number;
