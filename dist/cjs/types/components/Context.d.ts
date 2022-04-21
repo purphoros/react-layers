@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactElement } from 'react';
 export declare const MINIMIZED_FLAG = 0;
 export declare const MAXIMIZED_FLAG = 1;
 interface Base {
@@ -6,7 +6,9 @@ interface Base {
     updatedOn?: number;
     name?: string;
     orientation?: string;
-    component: (props: Layer) => JSX.Element;
+    component: ReactElement<{
+        layerUuid?: string;
+    }, any>;
     [k: string]: any;
 }
 export interface Layer extends Base {

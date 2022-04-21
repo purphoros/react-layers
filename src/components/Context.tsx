@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback, useContext, createContext, useRef, useEffect, cloneElement, FC, ReactElement } from 'react';
+import React, { useMemo, useState, useCallback, useContext, createContext, useRef, useEffect, cloneElement, FC, ReactElement, ReactNode } from 'react';
 import ActiveLayers from './ActiveLayers';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -10,8 +10,10 @@ interface Base {
   updatedOn?: number
   name?: string
   orientation?: string
-  component: (props: Layer) => JSX.Element;
-  // component: ReactElement<{ layerUuid?: string }, any>
+  // component: (props: Layer) => JSX.Element;
+  // component: (props: Layer) => ReactNode
+  // component: (props: Layer) => ReactElement
+  component: ReactElement<{ layerUuid?: string }, any>
   [k: string]: any
 }
 
