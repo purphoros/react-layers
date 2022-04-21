@@ -22,4 +22,4 @@ interface Props {
 }
 declare const LayersProvider: FC<Props>;
 
-export { Layer, LayersProvider, useLayer };
+export { Context, Layer, LayersProvider, useLayer };
