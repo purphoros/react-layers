@@ -4,7 +4,7 @@ interface Base {
     updatedOn?: number;
     name?: string;
     orientation?: string;
-    component?: any;
+    component: React.ReactElement<Layer>;
     [k: string]: any;
 }
 interface Layer extends Base {

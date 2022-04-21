@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback, useContext, createContext, useRef, useEffect, cloneElement, FC, ElementType, PropsWithChildren } from 'react';
+import React, { useMemo, useState, useCallback, useContext, createContext, useRef, useEffect, cloneElement, FC, ReactNode, ReactElement } from 'react';
 import ActiveLayers from './ActiveLayers';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -9,7 +9,7 @@ interface Base {
   updatedOn?: number
   name?: string
   orientation?: string
-  component?: any
+  component: React.ReactElement<Layer>
   [k: string]: any
 }
 
