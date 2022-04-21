@@ -2,6 +2,7 @@ import React, { FC, ReactElement } from 'react';
 export declare const MINIMIZED_FLAG = 0;
 export declare const MAXIMIZED_FLAG = 1;
 interface Base {
+    layerUuid?: string;
     updatedOn?: number;
     name?: string;
     orientation?: string;

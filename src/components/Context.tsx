@@ -6,6 +6,7 @@ export const MINIMIZED_FLAG = 0;
 export const MAXIMIZED_FLAG = 1;
 
 interface Base {
+  layerUuid?: string
   updatedOn?: number
   name?: string
   orientation?: string
