@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 export const MINIMIZED_FLAG = 0;
 export const MAXIMIZED_FLAG = 1;
 
-
 export interface Layer {
   layerUuid?: string
   updatedOn?: number
@@ -15,8 +14,8 @@ export interface Layer {
   [k: string]: any
 }
 
-interface Context {
-  laer: any
+export interface Context {
+  layers: any
   createLayer: (values: Layer, callback?: () => void) => void
   closeLayerByUuid: (layerUuid: string) => void
   closeLayerByName: (name: string) => void
@@ -80,7 +79,7 @@ export const LayersProvider: FC<Props> = (props: any) => {
 
   const contextValue: any = useMemo(
     () => ({
-      ...layers,
+      layers,
       createLayer,
       closeLayerByUuid,
       closeLayerByName,

@@ -9,7 +9,7 @@ interface Layer {
     [k: string]: any;
 }
 interface Context {
-    laer: any;
+    layers: any;
     createLayer: (values: Layer, callback?: () => void) => void;
     closeLayerByUuid: (layerUuid: string) => void;
     closeLayerByName: (name: string) => void;

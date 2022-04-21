@@ -9,8 +9,8 @@ export interface Layer {
     component?: any;
     [k: string]: any;
 }
-interface Context {
-    laer: any;
+export interface Context {
+    layers: any;
     createLayer: (values: Layer, callback?: () => void) => void;
     closeLayerByUuid: (layerUuid: string) => void;
     closeLayerByName: (name: string) => void;
