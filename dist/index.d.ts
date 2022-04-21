@@ -1,13 +1,11 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC } from 'react';
 
 interface Base {
     layerUuid?: string;
     updatedOn?: number;
     name?: string;
     orientation?: string;
-    component: ReactElement<{
-        layerUuid?: string;
-    }, any>;
+    component: (props: Layer) => JSX.Element;
     [k: string]: any;
 }
 interface Layer extends Base {
