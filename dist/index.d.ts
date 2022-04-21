@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 interface Layer {
-    layerUuid?: string;
+    layerUuid: string;
     updatedOn?: number;
     name?: string;
     orientation?: string;

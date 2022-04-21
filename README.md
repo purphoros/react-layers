@@ -73,5 +73,13 @@ export default Component;
 
 ### Close layer
 
-When you create a layer a property `layerUuid` is attached to the component that can be accessed by the layer which can be used for actions such as closing that layer.
+When you create a layer `layerUuid` is attached to the props of the component that can be used for actions such as closing that layer.
 
+```js
+  const { createLayer, closeLayerByUuid } = useLayer();
+
+  const Modal = ({ layerUuid }: Layer) => <div style={{ position: "relative", width: "400px", padding: "12px", backgroundColor: "#FFF" }}>
+    <div>Modal</div>
+    <button onClick={() => closeLayerByUuid(layerUuid)}>Close</button>
+  </div>
+```

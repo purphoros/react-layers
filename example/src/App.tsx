@@ -8,10 +8,7 @@ function App() {
 
   const Modal = ({ layerUuid = "" }: Layer) => <div style={{ position: "relative", width: "400px", padding: "12px", backgroundColor: "#FFF" }}>
     <div>Modal</div>
-    <button onClick={() => {
-      console.log(`Close ${layerUuid}`);
-      closeLayerByUuid(layerUuid);
-    }}>Close</button>
+    <button onClick={() => closeLayerByUuid(layerUuid)}>Close</button>
   </div>
 
   const onClick = (orientation = "default") => {
