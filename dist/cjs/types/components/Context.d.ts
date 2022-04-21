@@ -22,9 +22,9 @@ export declare const useLayerContext: () => Context;
 interface Props {
     children: React.ReactNode;
 }
-export declare const LayerContextProvider: FC<Props>;
+export declare const LayersProvider: FC<Props>;
 declare const _default: {
-    LayerContextProvider: React.FC<Props>;
+    LayersProvider: React.FC<Props>;
     useLayerContext: () => Context;
 };
 export default _default;

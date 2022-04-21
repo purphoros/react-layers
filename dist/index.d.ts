@@ -20,6 +20,6 @@ declare const useLayerContext: () => Context;
 interface Props {
     children: React.ReactNode;
 }
-declare const LayerContextProvider: FC<Props>;
+declare const LayersProvider: FC<Props>;
 
-export { LayerContextProvider, useLayerContext };
+export { LayersProvider, useLayerContext };

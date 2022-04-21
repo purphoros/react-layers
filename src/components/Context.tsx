@@ -53,7 +53,7 @@ interface Props {
   children: React.ReactNode
 }
 
-export const LayerContextProvider: FC<Props> = (props: any) => {
+export const LayersProvider: FC<Props> = (props: any) => {
   const { children } = props;
   const callbacks = useRef<(() => void)[]>([]);
 
@@ -116,4 +116,4 @@ export const LayerContextProvider: FC<Props> = (props: any) => {
   </>;
 };
 
-export default { LayerContextProvider, useLayerContext };
+export default { LayersProvider, useLayerContext };
