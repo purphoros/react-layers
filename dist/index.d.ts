@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, ReactElement } from 'react';
 
 interface Base {
     updatedOn?: number;
     name?: string;
     orientation?: string;
-    component: React.ReactElement<Layer>;
+    component: ReactElement;
     [k: string]: any;
 }
 interface Layer extends Base {
