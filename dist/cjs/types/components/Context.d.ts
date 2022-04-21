@@ -18,13 +18,13 @@ interface Context {
     closeAllLayers: () => void;
     [k: string]: any;
 }
-export declare const useLayerContext: () => Context;
+export declare const useLayer: () => Context;
 interface Props {
     children: React.ReactNode;
 }
 export declare const LayersProvider: FC<Props>;
 declare const _default: {
     LayersProvider: React.FC<Props>;
-    useLayerContext: () => Context;
+    useLayer: () => Context;
 };
 export default _default;

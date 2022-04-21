@@ -41,10 +41,10 @@ interface Context {
 
 const LayerContext = createContext([]);
 
-export const useLayerContext = (): Context => {
+export const useLayer = (): Context => {
   const context = useContext(LayerContext);
   if (context === undefined) {
-    throw new Error('useLayerContext was used outside of its Provider');
+    throw new Error('useLayer was used outside of its Provider');
   }
   return context as any;
 };
@@ -116,4 +116,4 @@ export const LayersProvider: FC<Props> = (props: any) => {
   </>;
 };
 
-export default { LayersProvider, useLayerContext };
+export default { LayersProvider, useLayer };
