@@ -16,10 +16,10 @@ interface Layer extends Base {
 }
 interface Context {
     layers: Array<Layer>;
-    createLayer?: (values: Base, callback?: () => void) => void;
-    closeLayerByUuid?: (layerUuid: string) => void;
-    closeLayerByName?: (name: string) => void;
-    closeAllLayers?: () => void;
+    createLayer: (values: Base, callback?: () => void) => void;
+    closeLayerByUuid: (layerUuid: string) => void;
+    closeLayerByName: (name: string) => void;
+    closeAllLayers: () => void;
 }
 declare const useLayer: () => Context;
 interface Props {

@@ -24,16 +24,16 @@ export interface Layer extends Base {
 
 export interface Context {
   layers: Array<Layer>
-  createLayer?: (values: Base, callback?: () => void) => void
-  closeLayerByUuid?: (layerUuid: string) => void
-  closeLayerByName?: (name: string) => void
-  closeAllLayers?: () => void
+  createLayer: (values: Base, callback?: () => void) => void
+  closeLayerByUuid: (layerUuid: string) => void
+  closeLayerByName: (name: string) => void
+  closeAllLayers: () => void
 }
 
 const LayerContext = createContext<any>({ layers: [] });
 
-export const useLayer = (): Context => {
-  const context = useContext(LayerContext);
+export const useLayer = () => {
+  const context = useContext<Context>(LayerContext);
   if (context === undefined) {
     throw new Error('useLayer was used outside of its Provider');
   }

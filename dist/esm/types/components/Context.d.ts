@@ -17,10 +17,10 @@ export interface Layer extends Base {
 }
 export interface Context {
     layers: Array<Layer>;
-    createLayer?: (values: Base, callback?: () => void) => void;
-    closeLayerByUuid?: (layerUuid: string) => void;
-    closeLayerByName?: (name: string) => void;
-    closeAllLayers?: () => void;
+    createLayer: (values: Base, callback?: () => void) => void;
+    closeLayerByUuid: (layerUuid: string) => void;
+    closeLayerByName: (name: string) => void;
+    closeAllLayers: () => void;
 }
 export declare const useLayer: () => Context;
 interface Props {
