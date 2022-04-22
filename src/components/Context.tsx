@@ -10,7 +10,9 @@ interface Base {
   updatedOn?: number
   name?: string
   orientation?: string
-  component: ReactElement<LayerProps, any>
+  component: ReactElement<LayerProps>
+  // component: (props: LayerProps) => JSX.Element
+  // component: React.ReactNode
 }
 
 export interface LayerProps {
@@ -71,7 +73,7 @@ export const LayersProvider: FC<Props> = (props: any) => {
       orientation,
       status: MAXIMIZED_FLAG,
       updatedOn: Date.now(),
-      component: cloneElement(component, { layerUuid })
+      component: cloneElement(component as ReactElement<LayerProps>, { layerUuid })
     };
 
     addLayer((existing: any) => [ ...existing, newLayer ]);
