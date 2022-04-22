@@ -13,7 +13,7 @@ interface Base {
 }
 
 export interface LayerProps {
-  layerUuid: string
+  layerUuid?: string
   style?: any
 }
 
@@ -31,12 +31,12 @@ export interface Context {
 
 const LayerContext = createContext<Context>({ layers: [] });
 
-export const useLayer = () => {
+export const useLayer = (): Context => {
   const context = useContext(LayerContext);
   if (context === undefined) {
     throw new Error('useLayer was used outside of its Provider');
   }
-  return context as any;
+  return context;
 };
 
 interface Props {

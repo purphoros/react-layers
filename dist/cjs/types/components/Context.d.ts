@@ -8,7 +8,7 @@ interface Base {
     component: ReactElement<LayerProps, any>;
 }
 export interface LayerProps {
-    layerUuid: string;
+    layerUuid?: string;
     style?: any;
 }
 export interface Layer extends Base {
@@ -21,7 +21,7 @@ export interface Context {
     closeLayerByName?: (name: string) => void;
     closeAllLayers?: () => void;
 }
-export declare const useLayer: () => any;
+export declare const useLayer: () => Context;
 interface Props {
     children: React.ReactNode;
 }

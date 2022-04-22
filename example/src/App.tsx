@@ -1,4 +1,4 @@
-import { Layer, useLayer } from '@purphoros/react-layers';
+import { Layer, LayerProps, useLayer } from '@purphoros/react-layers';
 import './App.css';
 
 // import Modal from './components/Modal';
@@ -6,9 +6,9 @@ import './App.css';
 function App() {
   const { createLayer, closeLayerByUuid } = useLayer();
 
-  const Modal = ({ layerUuid }) => <div style={{ position: "relative", width: "400px", padding: "12px", backgroundColor: "#FFF" }}>
+  const Modal = (props: LayerProps) => <div style={{ position: "relative", width: "400px", padding: "12px", backgroundColor: "#FFF" }}>
     <div>Modal</div>
-    <button onClick={() => closeLayerByUuid(layerUuid)}>Close</button>
+    <button onClick={() => closeLayerByUuid(props?.layerUuid)}>Close</button>
   </div>
 
   const onClick = (orientation = "default") => {

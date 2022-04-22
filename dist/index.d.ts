@@ -7,7 +7,7 @@ interface Base {
     component: ReactElement<LayerProps, any>;
 }
 interface LayerProps {
-    layerUuid: string;
+    layerUuid?: string;
     style?: any;
 }
 interface Layer extends Base {
@@ -20,7 +20,7 @@ interface Context {
     closeLayerByName?: (name: string) => void;
     closeAllLayers?: () => void;
 }
-declare const useLayer: () => any;
+declare const useLayer: () => Context;
 interface Props {
     children: React.ReactNode;
 }
