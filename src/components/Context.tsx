@@ -14,7 +14,7 @@ interface Base {
 }
 
 export interface LayerProps {
-  layerUuid: string
+  layerUuid?: string
   style?: any
 }
 
