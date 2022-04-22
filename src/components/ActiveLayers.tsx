@@ -1,8 +1,8 @@
-import React, { cloneElement } from 'react';
+import React, { cloneElement, ReactElement } from 'react';
 // import React, { useReducer, cloneElement } from 'react';
 
 // import { useEffect } from 'react';
-import { Layer } from './Context';
+import { Layer, LayerProps } from './Context';
 
 interface Props {
   layers: any
@@ -48,7 +48,7 @@ const ActiveLayers = (props: Props) => {
       const custom = (orientation && alignments[orientation]) ? alignments[orientation] : alignments.default;
       return <div key={layerUuid} style={{ ...custom, display: "flex", flexDirection: "column", position: "fixed", top: "0px", right: "0px", bottom: "0px", left: "0px", overflow: "auto", backgroundColor: "transparent" }}>
         <div style={{ position: "fixed", top: "0px", right: "0px", bottom: "0px", left: "0px", backgroundColor: "black", opacity: "0.5" }} onClick={() => layerUuid && closeLayerByUuid(layerUuid)} />
-        {cloneElement(component, { ...component.props, style: { ...component.props.style, backgroundColor: "#FF0000", position: "relative" }, ...layer })}
+        {cloneElement(component as ReactElement<LayerProps>, { ...component.props, style: { ...component.props.style, backgroundColor: "#FF0000", position: "relative" }, ...layer })}
       </div>
     })}
   </React.Fragment>
