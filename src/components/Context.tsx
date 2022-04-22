@@ -6,15 +6,15 @@ export const MINIMIZED_FLAG = 0;
 export const MAXIMIZED_FLAG = 1;
 
 interface Base {
-  layerUuid?: string
   updatedOn?: number
   name?: string
   orientation?: string
-  // component: (props: Layer) => JSX.Element;
-  // component: (props: Layer) => ReactNode
-  // component: (props: Layer) => ReactElement
-  component: ReactElement<{ layerUuid?: string }, any>
-  [k: string]: any
+  component: ReactElement<LayerProps, any>
+}
+
+export interface LayerProps {
+  layerUuid: string
+  style?: any
 }
 
 export interface Layer extends Base {
@@ -22,12 +22,11 @@ export interface Layer extends Base {
 }
 
 export interface Context {
-  layers: any
+  layers: Array<Layer>
   createLayer: (values: Base, callback?: () => void) => void
   closeLayerByUuid: (layerUuid: string) => void
   closeLayerByName: (name: string) => void
   closeAllLayers: () => void
-  [k: string]: any
 }
 
 const LayerContext = createContext([]);
@@ -48,7 +47,7 @@ export const LayersProvider: FC<Props> = (props: any) => {
   const { children } = props;
   const callbacks = useRef<(() => void)[]>([]);
 
-  const [ layers, addLayer ] = useState<Array<Base>>([]);
+  const [ layers, addLayer ] = useState<Array<Layer>>([]);
 
   const closeLayerByUuid = useCallback((layerUuid: string) =>
     addLayer(layers.filter((layer) => layer.layerUuid !== layerUuid)), [ layers ]);
@@ -104,5 +103,3 @@ export const LayersProvider: FC<Props> = (props: any) => {
     {!!activeLayers?.length && <ActiveLayers layers={activeLayers} closeLayerByUuid={closeLayerByUuid} />}
   </LayerContext.Provider>;
 };
-
-export default { LayersProvider, useLayer };

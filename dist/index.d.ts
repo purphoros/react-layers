@@ -1,25 +1,24 @@
 import React, { FC, ReactElement } from 'react';
 
 interface Base {
-    layerUuid?: string;
     updatedOn?: number;
     name?: string;
     orientation?: string;
-    component: ReactElement<{
-        layerUuid?: string;
-    }, any>;
-    [k: string]: any;
+    component: ReactElement<LayerProps, any>;
+}
+interface LayerProps {
+    layerUuid: string;
+    style?: any;
 }
 interface Layer extends Base {
     layerUuid: string;
 }
 interface Context {
-    layers: any;
+    layers: Array<Layer>;
     createLayer: (values: Base, callback?: () => void) => void;
     closeLayerByUuid: (layerUuid: string) => void;
     closeLayerByName: (name: string) => void;
     closeAllLayers: () => void;
-    [k: string]: any;
 }
 declare const useLayer: () => Context;
 interface Props {
@@ -27,4 +26,4 @@ interface Props {
 }
 declare const LayersProvider: FC<Props>;
 
-export { Context, Layer, LayersProvider, useLayer };
+export { Context, Layer, LayerProps, LayersProvider, useLayer };
