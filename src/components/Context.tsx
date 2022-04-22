@@ -14,7 +14,7 @@ interface Base {
 }
 
 export interface LayerProps {
-  layerUuid?: string
+  layerUuid: string
   style?: any
 }
 
@@ -50,7 +50,7 @@ export const LayersProvider: FC<Props> = (props: any) => {
 
   const [ layers, addLayer ] = useState<Array<Layer>>([]);
 
-  const closeLayerByUuid = useCallback((layerUuid: string) =>
+  const closeLayerByUuid = useCallback((layerUuid: string = "") =>
     addLayer(layers.filter((layer) => layer.layerUuid !== layerUuid)), [ layers ]);
 
   const closeLayerByName = useCallback((name: string) =>

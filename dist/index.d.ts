@@ -8,7 +8,7 @@ interface Base {
     component: ReactElement<LayerProps, any>;
 }
 interface LayerProps {
-    layerUuid?: string;
+    layerUuid: string;
     style?: any;
 }
 interface Layer extends Base {
