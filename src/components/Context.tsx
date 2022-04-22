@@ -6,6 +6,7 @@ export const MINIMIZED_FLAG = 0;
 export const MAXIMIZED_FLAG = 1;
 
 interface Base {
+  layerUuid?: string
   updatedOn?: number
   name?: string
   orientation?: string
@@ -83,7 +84,7 @@ export const LayersProvider: FC<Props> = (props: any) => {
     callbacks.current = [];
   }, [ layers ]);
 
-  const contextValue: any = useMemo(
+  const contextValue: Context = useMemo(
     () => ({
       layers,
       createLayer,

@@ -1,6 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 
 interface Base {
+    layerUuid?: string;
     updatedOn?: number;
     name?: string;
     orientation?: string;
