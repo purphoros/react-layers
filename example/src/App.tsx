@@ -1,4 +1,4 @@
-import { Layer, LayerProps, useLayer } from '@purphoros/react-layers';
+import { LayerProps, useLayer } from '@purphoros/react-layers';
 import './App.css';
 
 // import Modal from './components/Modal';

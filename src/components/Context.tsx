@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback, useContext, createContext, useRef, useEffect, cloneElement, FC, ReactElement, ReactNode } from 'react';
+import React, { useMemo, useState, useCallback, useContext, createContext, useRef, useEffect, cloneElement, FC, ReactElement, isValidElement } from 'react';
 import ActiveLayers from './ActiveLayers';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -71,7 +71,7 @@ export const LayersProvider: FC<Props> = (props: any) => {
       orientation,
       status: MAXIMIZED_FLAG,
       updatedOn: Date.now(),
-      component: cloneElement(component as ReactElement<any>, { layerUuid })
+      component: isValidElement(component) && cloneElement(component as ReactElement<any>, { layerUuid })
     };
 
     addLayer((existing: any) => [ ...existing, newLayer ]);
