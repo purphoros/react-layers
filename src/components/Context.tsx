@@ -30,7 +30,7 @@ export interface Context {
   closeAllLayers?: () => void
 }
 
-const LayerContext = createContext<Context>({ layers: [] });
+const LayerContext = createContext<any>({ layers: [] });
 
 export const useLayer = (): Context => {
   const context = useContext(LayerContext);
