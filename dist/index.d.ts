@@ -17,7 +17,7 @@ interface Layer extends Base {
 interface Context {
     layers: Array<Layer>;
     createLayer: (values: Base, callback?: () => void) => void;
-    closeLayerByUuid: (layerUuid: string) => void;
+    closeLayerByUuid: (layerUuid?: string) => void;
     closeLayerByName: (name: string) => void;
     closeAllLayers: () => void;
 }
